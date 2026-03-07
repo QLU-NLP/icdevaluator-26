@@ -121,19 +121,26 @@
 
 
 
-本次中文电子病历ICD自动编码任务采用正确率Accuracy和F1值作为评测指标，计算公式如下：
-	主要诊断编码(单标签)正确率〖Acc〗_main:
-〖Acc〗_main=(∑_(i=1)^N▒  I(y ̂_main==y_main )_i)/N
-	其他诊断编码（标签集合）F1值F1_other:
-F1_other=1/N ∑_(i=1)^N▒  F1_(other,i)
-其中，
-F1_(other,i)={█(0,     NUM(y ̂_other )_i≠NUM(y_other )_i& and  NUM(y ̂_other )_i⋅NUM(y_other )_i=0 ；  @ @1,                                                                          NUM(y_other )_i=NUM(y ̂_other )_i=0 ；  @ @(2⋅Precision_(other,i)⋅Recall_(other,i))/(Precision_(other,i)+Recall_(other,i) ),                                                                     否则。   )┤
-Precision_(other,i)=(NUM(y_other∩y ̂_other )_i)/(NUM(y ̂_other )_i ),
-Recall_(other,i)=(NUM(y_other∩y ̂_other )_i)/(NUM(y_other )_i )
-	主要手术编码正确率 〖Acc〗_(op_main)和其他手术编码F1值F1_(op_other)计算逻辑分别与主诊断编码、其他诊断编码一致，仅替换对应编码变量即可。
-	最终的综合评估指标M_total为:
-M_total=0.4〖Acc〗_main+0.1F1_other+0.4〖Acc〗_(op_main)+0.1F1_(op_other)
-其中，I(∙)为指示函数，满足条件返回1，否则返回0，y ̂_main和y_main分别表示主要诊断编码的预测标签和真实标签；NUM(x)代表数量函数，用来计算x的数量，y ̂_other和y_other分别表示其他诊断编码的预测标签集和真实标签集，对于手术编码同理； N为测试样本的数量。
+中文电子病历ICD诊断编码任务采用正确率（Acc）作为评测指标，计算公式如下：
+
+
+
+
+![Acc formula](https://latex.codecogs.com/png.image?\dpi{150}Acc=\frac{1}{N}\sum_{i=1}^{N}\lbrace0.5\cdot%20I(\hat{y}_{\text{main}}=y_{\text{main}})+0.5\cdot%20F1(\hat{y}_{\text{other}},y_{\text{other}})\rbrace_i)
+
+
+
+
+在这个公式中，![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20I%28%5Ccdot%29)为指示函数，满足条件返回1，否则返回0；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20%5Chat%7By%7D_%7Bmain%7D)和![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20y_%7Bmain%7D)分别表示主诊断编码的预测标签和真实标签；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20NUM%28x%29)代表数量函数，用来计算x的数量，![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20%5Chat%7By%7D_%7Bother%7D)和![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20y_%7Bother%7D)分别表示其他诊断编码的预测标签集和真实标签集；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20N)为测试样本的数量；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20%5C%7B%5Ccdot%5C%7D_i)为第i个中文电子病历的预测准确率；F1()代表 F1分数，计算公式为:
+
+![F1 formula](https://latex.codecogs.com/svg.image?\dpi{150}F1(y,\hat{y})=2\cdot\frac{\text{Precision}(y,\hat{y})\cdot\text{Recall}(y,\hat{y})}{\text{Precision}(y,\hat{y})+\text{Recall}(y,\hat{y})})其中，
+
+
+![Precision](https://latex.codecogs.com/svg.image?\dpi{150}\text{Precision}(y,\hat{y})=\frac{NUM(y\cap\hat{y})}{NUM(\hat{y})})
+
+![Recall](https://latex.codecogs.com/svg.image?\dpi{150}\text{Recall}(y,\hat{y})=\frac{NUM(y\cap\hat{y})}{NUM(y)})
+
+
 
 
 
