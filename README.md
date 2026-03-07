@@ -119,26 +119,21 @@
 ## 3、评测指标
 本次中文电子病历ICD自动编码任务采用正确率Accuracy和F1值作为评测指标，计算公式如下：待写32151345346524645
 
+本次中文电子病历ICD自动编码任务采用综合准确率作为评测指标，计算公式如下：
+
+https://latex.codecogs.com/png.image?%5Cdpi%7B150%7DAcc=%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi=1%7D%5E%7BN%7D%5Clbrace0.5%5Ccdot%2520I(%5Chat%7By%7D_%7B%5Ctext%7Bmain%7D%7D=y_%7B%5Ctext%7Bmain%7D%7D)+0.5%5Ccdot%2520F1(%5Chat%7By%7D_%7B%5Ctext%7Bother%7D%7D,y_%7B%5Ctext%7Bother%7D%7D)%5Crbrace_i
+
+在这个公式中，https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520I%2528%255Ccdot%2529为指示函数，满足条件返回1，否则返回0；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520%255Chat%257By%257D_%257Bmain%257D和https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520y_%257Bmain%257D分别表示主诊断编码的预测标签和真实标签；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520NUM%2528x%2529代表数量函数，用来计算x的数量，https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520%255Chat%257By%257D_%257Bother%257D和https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520y_%257Bother%257D分别表示其他诊断编码的预测标签集和真实标签集；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520N为测试样本的数量；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520%255C%257B%255Ccdot%255C%257D_i为第i个中文电子病历的预测准确率；F1()代表F1分数，计算公式为：
+
+https://latex.codecogs.com/svg.image?%5Cdpi%7B150%7DF1(y,%5Chat%7By%7D)=2%5Ccdot%5Cfrac%7B%5Ctext%7BPrecision%7D(y,%5Chat%7By%7D)%5Ccdot%5Ctext%7BRecall%7D(y,%5Chat%7By%7D)%7D%7B%5Ctext%7BPrecision%7D(y,%5Chat%7By%7D)+%5Ctext%7BRecall%7D(y,%5Chat%7By%7D)%7D
+
+其中：
+
+https://latex.codecogs.com/svg.image?%5Cdpi%7B150%7D%5Ctext%7BPrecision%7D(y,%5Chat%7By%7D)=%5Cfrac%7BNUM(y%5Ccap%5Chat%7By%7D)%7D%7BNUM(%5Chat%7By%7D)%7D
+
+https://latex.codecogs.com/svg.image?%5Cdpi%7B150%7D%5Ctext%7BRecall%7D(y,%5Chat%7By%7D)=%5Cfrac%7BNUM(y%5Ccap%5Chat%7By%7D)%7D%7BNUM(y)%7D
 
 
-中文电子病历ICD诊断编码任务采用正确率（Acc）作为评测指标，计算公式如下：
-
-
-
-
-![Acc formula](https://latex.codecogs.com/png.image?\dpi{150}Acc=\frac{1}{N}\sum_{i=1}^{N}\lbrace0.5\cdot%20I(\hat{y}_{\text{main}}=y_{\text{main}})+0.5\cdot%20F1(\hat{y}_{\text{other}},y_{\text{other}})\rbrace_i)
-
-
-
-
-在这个公式中，![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20I%28%5Ccdot%29)为指示函数，满足条件返回1，否则返回0；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20%5Chat%7By%7D_%7Bmain%7D)和![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20y_%7Bmain%7D)分别表示主诊断编码的预测标签和真实标签；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20NUM%28x%29)代表数量函数，用来计算x的数量，![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20%5Chat%7By%7D_%7Bother%7D)和![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20y_%7Bother%7D)分别表示其他诊断编码的预测标签集和真实标签集；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20N)为测试样本的数量；![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Csmall%20%5C%7B%5Ccdot%5C%7D_i)为第i个中文电子病历的预测准确率；F1()代表 F1分数，计算公式为:
-
-![F1 formula](https://latex.codecogs.com/svg.image?\dpi{150}F1(y,\hat{y})=2\cdot\frac{\text{Precision}(y,\hat{y})\cdot\text{Recall}(y,\hat{y})}{\text{Precision}(y,\hat{y})+\text{Recall}(y,\hat{y})})其中，
-
-
-![Precision](https://latex.codecogs.com/svg.image?\dpi{150}\text{Precision}(y,\hat{y})=\frac{NUM(y\cap\hat{y})}{NUM(\hat{y})})
-
-![Recall](https://latex.codecogs.com/svg.image?\dpi{150}\text{Recall}(y,\hat{y})=\frac{NUM(y\cap\hat{y})}{NUM(y)})
 
 
 
@@ -209,6 +204,7 @@
          b. 团队提交的材料内容不完整，或提交任何虚假信息；
          c. 参赛团队无法就作品疑义进行足够信服的解释说明；
 9. 获奖队伍必须注册会议并在线下参加（如遇特殊情况，可申请线上参加）。
+
 
 
 
