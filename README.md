@@ -121,7 +121,10 @@
 
 本次中文电子病历ICD自动编码任务采用综合准确率作为评测指标，计算公式如下：
 
-https://latex.codecogs.com/png.image?%5Cdpi%7B150%7DAcc=%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi=1%7D%5E%7BN%7D%5Clbrace0.5%5Ccdot%2520I(%5Chat%7By%7D_%7B%5Ctext%7Bmain%7D%7D=y_%7B%5Ctext%7Bmain%7D%7D)+0.5%5Ccdot%2520F1(%5Chat%7By%7D_%7B%5Ctext%7Bother%7D%7D,y_%7B%5Ctext%7Bother%7D%7D)%5Crbrace_i
+(2) 其他诊断编码（标签集合）F1值 $F1_{other}$：
+$$
+F1_{other} = \frac{1}{N}\sum_{i=1}^{N} F1_{other,i}
+$$
 
 在这个公式中，https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520I%2528%255Ccdot%2529为指示函数，满足条件返回1，否则返回0；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520%255Chat%257By%257D_%257Bmain%257D和https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520y_%257Bmain%257D分别表示主诊断编码的预测标签和真实标签；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520NUM%2528x%2529代表数量函数，用来计算x的数量，https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520%255Chat%257By%257D_%257Bother%257D和https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520y_%257Bother%257D分别表示其他诊断编码的预测标签集和真实标签集；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520N为测试样本的数量；https://latex.codecogs.com/png.latex?%255Cdpi%257B150%257D%2520%255Csmall%2520%255C%257B%255Ccdot%255C%257D_i为第i个中文电子病历的预测准确率；F1()代表F1分数，计算公式为：
 
@@ -204,6 +207,7 @@ https://latex.codecogs.com/svg.image?%5Cdpi%7B150%7D%5Ctext%7BRecall%7D(y,%5Chat
          b. 团队提交的材料内容不完整，或提交任何虚假信息；
          c. 参赛团队无法就作品疑义进行足够信服的解释说明；
 9. 获奖队伍必须注册会议并在线下参加（如遇特殊情况，可申请线上参加）。
+
 
 
 
