@@ -152,7 +152,7 @@ $$
 Recall_{other,i} = \frac{NUM(y_{other} \cap \hat{y}_{other})_i}{NUM(y_{other})_i}
 $$
 
-③ 主要手术编码正确率 <img src="https://latex.codecogs.com/svg.latex?Acc_%7B%5Ctext%7Bop%5C_main%7D%7D" style="vertical-align: middle; height: 1em;">  和其他手术编码 F1 值 $F1_{op_other}$ 计算逻辑分别与主诊断编码、其他诊断编码一致，仅替换对应编码变量即可。
+③ 主要手术编码正确率 <img src="https://latex.codecogs.com/svg.latex?Acc_%7B%5Ctext%7Bop%5C_main%7D%7D" style="vertical-align: middle; height: 1em;">  和其他手术编码 F1 值 <img src="https://latex.codecogs.com/svg.latex?F1_%7B%5Ctext%7Bop%5C_other%7D%7D" style="vertical-align: middle; height: 1em;">  计算逻辑分别与主诊断编码、其他诊断编码一致，仅替换对应编码变量即可。
 
 ④ 最终的综合评估指标 $M_{total}$ 为：
 
@@ -230,6 +230,7 @@ $$
          b. 团队提交的材料内容不完整，或提交任何虚假信息；
          c. 参赛团队无法就作品疑义进行足够信服的解释说明；
 9. 获奖队伍必须注册会议并在线下参加（如遇特殊情况，可申请线上参加）。
+
 
 
 
