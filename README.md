@@ -121,11 +121,46 @@
 
 本次中文电子病历ICD自动编码任务采用综合准确率作为评测指标，计算公式如下：
 
-(2) 其他诊断编码（标签集合）F1值 $F1_{other}$：
+① 主要诊断编码 (单标签) 正确率 $Acc_{main}$:
+
 $$
-F1_{other} = \frac{1}{N}\sum_{i=1}^{N} F1_{other,i}
+Acc_{main} = \frac{\sum_{i=1}^{N} I(\hat{y}_{main_i} == y_{main_i})}{N}
 $$
 
+② 其他诊断编码 (标签集合) F1 值 $F1_{other}$:
+
+$$
+F1_{other} = \frac{1}{N} \sum_{i=1}^{N} F1_{other,i}
+$$
+
+其中，
+
+$$
+F1_{other,i} =
+\begin{cases}
+0, & NUM(\hat{y}_{other})_i \neq NUM(y_{other})_i \text{ and } NUM(\hat{y}_{other})_i \cdot NUM(y_{other})_i = 0 \\
+1, & NUM(\hat{y}_{other})_i = NUM(y_{other})_i = 0 \\
+2 \cdot \dfrac{Precision_{other,i} \cdot Recall_{other,i}}{Precision_{other,i} + Recall_{other,i}}, & \text{否则}.
+\end{cases}
+$$
+
+$$
+Precision_{other,i} = \frac{NUM(y_{other} \cap \hat{y}_{other})_i}{NUM(\hat{y}_{other})_i}
+$$
+
+$$
+Recall_{other,i} = \frac{NUM(y_{other} \cap \hat{y}_{other})_i}{NUM(y_{other})_i}
+$$
+
+③ 主要手术编码正确率 $Acc_{op\_main}$ 和其他手术编码 F1 值 $F1_{op\_other}$ 计算逻辑分别与主诊断编码、其他诊断编码一致，仅替换对应编码变量即可。
+
+④ 最终的综合评估指标 $M_{total}$ 为：
+
+$$
+M_{total} = 0.4 Acc_{main} + 0.1 F1_{other} + 0.4 Acc_{op\_main} + 0.1 F1_{op\_other}
+$$
+
+其中，$I(\cdot)$ 为指示函数，满足条件返回 1，否则返回 0；$\hat{y}_{main}$ 和 $y_{main}$ 分别表示主要诊断编码的预测标签和真实标签；$NUM(x)$ 代表数量函数，用来计算 $x$ 的数量；$\hat{y}_{other}$ 和 $y_{other}$ 分别表示其他诊断编码的预测标签集和真实标签集，对于手术编码同理；$N$ 为测试样本的数量。
 
 
 
@@ -196,6 +231,7 @@ $$
          b. 团队提交的材料内容不完整，或提交任何虚假信息；
          c. 参赛团队无法就作品疑义进行足够信服的解释说明；
 9. 获奖队伍必须注册会议并在线下参加（如遇特殊情况，可申请线上参加）。
+
 
 
 
