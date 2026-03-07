@@ -16,7 +16,7 @@
 
 - 数据集申请
 
-1. 下载《数据使用与保密承诺书》在文档末尾填写参赛队伍信息，下载地址：[点击此处](https://github.com/QLU-NLP/icdevaluator/raw/refs/heads/main/doc/%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8%E4%B8%8E%E4%BF%9D%E5%AF%86%E6%89%BF%E8%AF%BA%E4%B9%A6%20.docx)。
+1. 下载《数据使用与保密承诺书》在文档末尾填写参赛队伍信息，下载地址：[点击此处](https://github.com/QLU-NLP/icdevaluator-26/raw/refs/heads/main/doc/%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8%E4%B8%8E%E4%BF%9D%E5%AF%86%E6%89%BF%E8%AF%BA%E4%B9%A6%20.docx)。
 2. 参赛队伍负责人签名（手写签名）。
 3. 将签名的《数据使用与保密承诺书》扫描件（PDF）发送至以下邮箱icdevaluator@163.com，邮件标题为：“队伍名称-学校-中文电子病历ICD自动编码任务数据使用申请”。
 
@@ -227,6 +227,7 @@
          b. 团队提交的材料内容不完整，或提交任何虚假信息；
          c. 参赛团队无法就作品疑义进行足够信服的解释说明；
 9. 获奖队伍必须注册会议并在线下参加（如遇特殊情况，可申请线上参加）。
+
 
 
 
