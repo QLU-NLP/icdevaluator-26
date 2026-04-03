@@ -16,9 +16,9 @@
 
 • train.xlsx:训练集标注数据。
 
-• A test.xlsx:A榜测试集。
+• A_test.xlsx:A榜测试集。
 
-• Btest.xlsx:B榜测试集。B榜测试集不公开。
+• B_test.xlsx:B榜测试集。B榜测试集不公开。
 
 - 数据集申请
 
