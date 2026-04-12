@@ -186,10 +186,10 @@ $$
 
 # 五、评测数据
 
-数据由json格式给出，数据集包含以下内容：
+数据由excel格式给出，数据集包含以下内容：
 
-- ICD-Coding-train.json: 训练集标注数据。
-- ICD-Coding-test.json: 测试集（验证集）。
+- train.xlsx: 训练集标注数据。
+- A_test.xlsx: A榜（验证集）。
 
 # 六、赛程安排
 
